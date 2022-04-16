@@ -29,13 +29,13 @@ class TestPublicClient(object):
         assert 'asks' in r
         assert 'bids' in r
 
-        if level in (1, None) and (len(r['asks']) > 1 or len(r['bids']) > 1):
+        if (level in (1, None)) and (len(r['asks']) > 1 or len(r['bids']) > 1):
             pytest.fail('Fail: Level 1 should only return the best ask and bid')
 
-        if level is 2 and (len(r['asks']) > 50 or len(r['bids']) > 50):
+        if (level == 2) and (len(r['asks']) > 50 or len(r['bids']) > 50):
             pytest.fail('Fail: Level 2 should only return the top 50 asks and bids')
 
-        if level is 3 and (len(r['asks']) < 50 or len(r['bids']) < 50):
+        if (level == 3) and (len(r['asks']) < 50 or len(r['bids']) < 50):
             pytest.fail('Fail: Level 3 should return the full order book')
 
     def test_get_product_ticker(self, client):

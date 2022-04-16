@@ -15,3 +15,10 @@ six==1.11.0
 sortedcontainers==2.1.0
 urllib3==1.24.2
 websocket-client==0.54.0
+
+# My Stuff
+pylint
+autopep8
+black
+
+ipykernel
